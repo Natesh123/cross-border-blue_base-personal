@@ -149,11 +149,13 @@ const Login = () => {
       (error: any) => {
         console.log("LOGIN ERROR CALLBACK IN COMPONENT:", JSON.stringify(error));
         if (error && (error.statusMsg || error.StatusMsg)) {
-          Toast.show({
-            type: "error",
-            text1: "Login",
-            text2: error.statusMsg || error.StatusMsg,
-          });
+          setTimeout(() => {
+            Toast.show({
+              type: "error",
+              text1: "Login",
+              text2: error.statusMsg || error.StatusMsg,
+            });
+          }, 200);
         }
       },
       () => {
